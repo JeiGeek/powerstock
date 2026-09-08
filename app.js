@@ -686,28 +686,27 @@ function buildFormattedMessage(srv) {
   const contactoTexto = srv.contacto ? srv.contacto : 'No especificado';
   const comentariosTexto = srv.comentarios ? srv.comentarios : 'Ninguno';
 
-  // Texto sin numeración (0., 1., 2., etc. removidos para WhatsApp limpio)
   let msg = `⚡ *POWERSTOCK - REPORTE DE SERVICIO* ⚡\n`;
   msg += `📌 *Tipo de servicio:* ${srv.tipoLabel}\n`;
   msg += `📅 *Fecha:* ${srv.fecha}\n\n`;
-  msg += `👨‍🔧 *Responsable de instalación:* ${srv.tecnico}\n`;
-  msg += `👤 *Cliente:* ${srv.cliente}\n`;
+  msg += `- *Responsable de instalación:* ${srv.tecnico}\n`;
+  msg += `- *Cliente:* ${srv.cliente}\n`;
   if (srv.cedula) {
-    msg += `🪪 *Cédula:* ${srv.cedula}\n`;
+    msg += `- *Cédula:* ${srv.cedula}\n`;
   }
-  msg += `💳 *Tipo de pago:* ${pagoTexto}\n`;
-  msg += `💰 *Valor a pagar:* ${valorTexto}\n`;
-  msg += `🔋 *Batería:* ${srv.bateria}\n`;
+  msg += `- *Tipo de pago:* ${pagoTexto}\n`;
+  msg += `- *Valor a pagar:* ${valorTexto}\n`;
+  msg += `- *Batería:* ${srv.bateria}\n`;
   if (srv.serial) {
-    msg += `🔢 *Serial:* ${srv.serial}\n`;
+    msg += `- *Serial:* ${srv.serial}\n`;
   }
   if (srv.tipo === 'venta') {
-    msg += `🔄 *Deja batería usada:* ${srv.dejaBateriaUsada}\n`;
+    msg += `- *Deja batería usada:* ${srv.dejaBateriaUsada}\n`;
   }
-  msg += `📍 *Dirección:* ${direccionTexto}\n`;
-  msg += `📱 *Número de contacto:* ${contactoTexto}\n`;
+  msg += `- *Dirección:* ${direccionTexto}\n`;
+  msg += `- *Número de contacto:* ${contactoTexto}\n`;
   if (srv.comentarios && srv.comentarios !== 'Ninguno') {
-    msg += `📝 *Comentarios adicionales:* ${comentariosTexto}\n`;
+    msg += `- *Comentarios adicionales:* ${comentariosTexto}\n`;
   }
   msg += `\n_Generado por PowerStock_ 🚀`;
 
